@@ -1,0 +1,47 @@
+﻿@page
+@using BasketFrontend.Models
+@using System.Globalization
+@model HistoryModel
+@{
+    ViewData["Title"] = "History";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+@if (Model.receipts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Itens</th>
+                <th>Subtotal</th>
+                <th>Discounts</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.receipts.Count == 0)
+            {
+                <tr>
+                    <td colspan="4" align="center">No data</td>
+                </tr> 
+            }
+            else
+            {
+                @for (int i = 0; i < Model.receipts.Count; i++)
+                {
+                    <tr>
+                        <td>@Html.Raw(string.Join("<br>", Model.receipts[i].Items.Select(d => $"{d.Product.Name} ({d.Product.Price} {d.Product.Currency}) with Qty: {d.Quantity}")))</td>
+                        <td>@Model.receipts[i].Subtotal.ToString("F2", CultureInfo.InvariantCulture)</td>
+                        <td>@Html.Raw(string.Join("<br>", Model.receipts[i].Discounts.Select(d => $"{d.Description}")))</td>
+                        <td>@Model.receipts[i].Total.ToString("F2", CultureInfo.InvariantCulture)</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+}

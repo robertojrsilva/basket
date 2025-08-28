@@ -1,0 +1,125 @@
+﻿@page
+@using BasketFrontend.Models
+@using System.Globalization
+@model BasketModel
+@{
+    ViewData["Title"] = "Basket";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+@if (Model.basketItems == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <form class="form-horizontal" method="post">
+        <div class="form-group">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Currency</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.basketItems.Count == 0)
+                    {
+                       <tr>
+                           <td colspan="5" align="center">No data</td>
+                       </tr> 
+                    }
+                    else
+                    {
+                        @for (int i = 0; i < Model.basketItems.Count; i++)
+                        {
+                            <tr>
+                                <td>@Model.basketItems[i].Product.Name
+                                    <input asp-for="basketItems[@i].Product.Name" type="hidden" data-row="@i" />
+                                </td>
+                                <td>
+                                    @Model.basketItems[i].Product.Price
+                                    <input asp-for="basketItems[@i].Product.Price" type="hidden" data-row="@i" class="price-field" />
+                                </td>
+                                <td>
+                                    @Model.basketItems[i].Product.Currency
+                                    <input asp-for="basketItems[@i].Product.Currency" type="hidden" data-row="@i" />
+                                </td>
+                                <td>
+                                    <input asp-for="basketItems[@i].Quantity" type="number" data-row="@i" step="1" max="10" min="0" value="@Model.basketItems[i].Quantity" oninput="this.value = Math.round(this.value);" class="form-control quantity-field border-1 text-center w-25">
+                                </td>
+                                <td>
+                                    <span id="lineTotal-@i" class="line-total">
+                                        @(Model.basketItems[i].Quantity * Model.basketItems[i].Product.Price)
+                                    </span>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+            @if (Model.basketItems.Count > 0)
+            {        
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button id="btnReceipt" type="submit" class="btn btn-success btn-pressure" name="btnReceipt">Get Receipt</button>
+                </div>
+            }
+        </div>
+    </form>
+
+    @if (Model.receipt != null)
+    {
+        <h3>Receipt</h3>
+
+        <p>Subtotal: @Model.receipt.Subtotal.ToString("F2", CultureInfo.InvariantCulture)</p>
+
+        <p>Discounts: </p>
+        @if (Model.receipt.Discounts == null || Model.receipt.Discounts.Where(f => f.Value != 0).Count() == 0)
+        {
+            <p>&emsp; Not applicable</p>
+        }
+        else
+        {
+            foreach(var discount in Model.receipt.Discounts.Where(f => f.Value != 0))
+            {
+                <p>&emsp; @discount.Description</p>
+            }
+        }
+
+        <p>Total: @Model.receipt.Total.ToString("F2", CultureInfo.InvariantCulture)</p>
+    }
+}
+
+<script>
+
+    var quantities = document.getElementsByName("quantity");
+    if (quantities) {
+        for (var i=0; i < quantities.length; i++) {
+            quantities[i].addEventListener("change", function() {
+                  let v = parseInt(this.value);
+                  if (v < 0) this.value = 0;
+                  if (v > 10) this.value = 10;
+            });
+        }
+    }
+
+    function updateLineTotal(row) {
+        const qty = parseInt(document.querySelector(`.quantity-field[data-row="${row}"]`).value) || 0;
+        const price = parseFloat(document.querySelector(`.price-field[data-row="${row}"]`).value.replace(",", ".")) || 0;
+        document.getElementById(`lineTotal-${row}`).innerText = Math.round(qty * price * 100) / 100;
+    }
+
+    document.querySelectorAll(".quantity-field").forEach(input => {
+        input.addEventListener("input", function () {
+            const row = this.getAttribute("data-row");
+            const price = parseInt(this.value) || 0;
+            updateLineTotal(row);
+        });
+    });
+        
+</script>

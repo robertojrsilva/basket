@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketBackend", "BasketBackend\BasketBackend.csproj", "{6978DAA8-00E4-43F6-9D6A-423BF1D5A4A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketBackend.Tests", "BasketBackend.Tests\BasketBackend.Tests.csproj", "{3727427C-F85E-68AE-600D-F6BD4B0DE454}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6978DAA8-00E4-43F6-9D6A-423BF1D5A4A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6978DAA8-00E4-43F6-9D6A-423BF1D5A4A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6978DAA8-00E4-43F6-9D6A-423BF1D5A4A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6978DAA8-00E4-43F6-9D6A-423BF1D5A4A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3727427C-F85E-68AE-600D-F6BD4B0DE454}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3727427C-F85E-68AE-600D-F6BD4B0DE454}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3727427C-F85E-68AE-600D-F6BD4B0DE454}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3727427C-F85E-68AE-600D-F6BD4B0DE454}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A2BF35F-EDB3-4B90-9085-BE54A7BFDBA7}
+	EndGlobalSection
+EndGlobal

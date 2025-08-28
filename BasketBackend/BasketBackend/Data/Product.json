@@ -1,0 +1,22 @@
+[
+  {
+    "Name": "Soup",
+    "Price": 0.65,
+    "Currency": "EUR"
+  },
+  {
+    "Name": "Bread",
+    "Price": 0.80,
+    "Currency": "EUR"
+  },
+  {
+    "Name": "Milk",
+    "Price": 1.30,
+    "Currency": "EUR"
+  },
+  {
+    "Name": "Apples",
+    "Price": 1.00,
+    "Currency": "EUR"
+  }
+]

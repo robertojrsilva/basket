@@ -1,0 +1,98 @@
+[
+  {
+    "Items": [
+      {
+        "Product": {
+          "Name": "Apples",
+          "Price": 1.00,
+          "Currency": "EUR"
+        },
+        "Quantity": 9
+      }
+    ],
+    "Subtotal": 9.00,
+    "Discounts": [
+      {
+        "Value": 0.9000,
+        "Description": "Apples 10% off their normal price this week.: -0,90 EUR"
+      }
+    ],
+    "Total": 8.1000
+  },
+  {
+    "Items": [
+      {
+        "Product": {
+          "Name": "Soup",
+          "Price": 0.65,
+          "Currency": "EUR"
+        },
+        "Quantity": 4
+      },
+      {
+        "Product": {
+          "Name": "Bread",
+          "Price": 0.80,
+          "Currency": "EUR"
+        },
+        "Quantity": 2
+      }
+    ],
+    "Subtotal": 4.20,
+    "Discounts": [
+      {
+        "Value": 0.8000,
+        "Description": "Buy 2 tins of soup and get a loaf of bread for half price: -0,80 EUR"
+      }
+    ],
+    "Total": 3.4000
+  },
+  {
+    "Items": [
+      {
+        "Product": {
+          "Name": "Soup",
+          "Price": 0.65,
+          "Currency": "EUR"
+        },
+        "Quantity": 4
+      },
+      {
+        "Product": {
+          "Name": "Bread",
+          "Price": 0.80,
+          "Currency": "EUR"
+        },
+        "Quantity": 1
+      },
+      {
+        "Product": {
+          "Name": "Milk",
+          "Price": 1.30,
+          "Currency": "EUR"
+        },
+        "Quantity": 3
+      },
+      {
+        "Product": {
+          "Name": "Apples",
+          "Price": 1.00,
+          "Currency": "EUR"
+        },
+        "Quantity": 5
+      }
+    ],
+    "Subtotal": 12.30,
+    "Discounts": [
+      {
+        "Value": 0.5000,
+        "Description": "Apples 10% off their normal price this week.: -0,50 EUR"
+      },
+      {
+        "Value": 0.4000,
+        "Description": "Buy 2 tins of soup and get a loaf of bread for half price: -0,40 EUR"
+      }
+    ],
+    "Total": 11.4000
+  }
+]
