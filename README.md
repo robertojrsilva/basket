@@ -8,7 +8,7 @@ Visual Studio 2022 or later
 .NET 6.0 SDK or later
 
 1. Clone the repository
-git clone https://github.com/your-username/your-repo.git
+git clone [https://github.com/robertojrsilva/basket.git](https://github.com/robertojrsilva/basket.git)
 
 2. Running the BasketBackend
 Open BasketBackend solution in Visual Studio.
